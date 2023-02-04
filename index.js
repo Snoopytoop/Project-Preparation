@@ -6,7 +6,6 @@ const userListEl = document.querySelector(".user-list")
 async function main() {
   const users = await fetch("https://jsonplaceholder.typicode.com/users");
   const usersData = await users.json();
-  console.log(usersData)
 
   userListEl.innerHTML = usersData.map(
     (user) => userHTML(user)).join("") 
@@ -15,6 +14,7 @@ async function main() {
 main();
 
 function showUserPosts(id) {
+    localStorage.setItem("id", id)
     window.location.href = `${window.location.origin}/user.html`
 }
 
